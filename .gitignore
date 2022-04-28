@@ -102,3 +102,11 @@ dist
 
 # TernJS port file
 .tern-port
+
+
+.DS_Store
+.vscode
+
+00-practice-app
+
+_hidden
