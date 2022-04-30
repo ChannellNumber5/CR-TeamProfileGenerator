@@ -1,8 +1,9 @@
 function employeeCardGenerator(data) {
+    let emplCardString = "";
     for(let i = 0; i < data.length; i++) {
 
         if(data[i].getRole() === "Manager") {
-            return `<div class="card">
+            emplCardString += `<div class="card"> //new change, that we'll try in later code...
             <div class="card-header">
                 <h3>${data[i].name}</h3>
                 <h4>${data[i].getRole}</h4>
