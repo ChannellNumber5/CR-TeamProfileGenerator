@@ -11,8 +11,7 @@ describe("Manager", () => {
         it("Should throw an error if office number is blank or not a string", () => {
             const newMgrFunc = () => new Manager("Tim" , 55228,"timMember@me.com", );
 
-            const err = new Error("Expected office number to be included");
-            expect(newMgrFunc).toThrow(err)
+            expect(newMgrFunc).toThrow()
         });
     });
         // could add tests for id length max and min, if specified by company

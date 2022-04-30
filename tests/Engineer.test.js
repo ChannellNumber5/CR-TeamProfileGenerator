@@ -11,8 +11,7 @@ describe("Engineer", () => {
         it("Should throw an error if github is blank or not a string", () => {
             const newEngFunc = () => new Engineer("Tim" , 55228, "timMember@me.com");
 
-            const err = new Error("Expected github username to be included");
-            expect(newEngFunc).toThrow(err)
+            expect(newEngFunc).toThrow()
         });
     });
         // could add tests for id length max and min, if specified by company

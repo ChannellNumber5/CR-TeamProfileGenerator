@@ -11,8 +11,7 @@ describe("Intern", () => {
         it("Should throw an error if github is blank or not a string", () => {
             const newIntFunc = () => new Intern("Tim" , 55228, "timMember@me.com");
 
-            const err = new Error("Expected school name to be included");
-            expect(newIntFunc).toThrow(err)
+            expect(newIntFunc).toThrow();
         });
     });
         // could add tests for id length max and min, if specified by company
