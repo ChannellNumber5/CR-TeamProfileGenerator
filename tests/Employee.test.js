@@ -19,22 +19,22 @@ describe("Employee", () => {
         it("Should throw an error if name provided is not a string", () => {
             const newEmpFunc = () => new Employee(55228 , 55228, "timMember@me.com");
 
-            const err = new Error("Expected parameter in name to be a string");
-            expect(newEmpFunc).toThrow(err)
+            // const err = new Error("Expected parameter in name to be a string");
+            expect(newEmpFunc).toThrow()
         });
 
         it("Should throw an error if id provided is not a number", () => {
             const newEmpFunc = () => new Employee("Tim" , "TimsID", "timMember@me.com");
 
-            const err = new Error("Expected parameter in id to be number");
-            expect(newEmpFunc).toThrow(err)
+            // const err = new Error("Expected parameter in id to be number");
+            expect(newEmpFunc).toThrow()
         });
 
-        it("Should throw an error if id provided email is blank", () => {
-            const newEmpFunc = () => new Employee("Tim" , "TimsID", );
+        it("Should throw an error if provided email is not a string", () => {
+            const newEmpFunc = () => new Employee("Tim" , "TimsID", 555444333);
 
-            const err = new Error("Expected email address to be included");
-            expect(newEmpFunc).toThrow(err)
+            // const err = new Error("Expected email address to be included");
+            expect(newEmpFunc).toThrow()
         });
     });
         // could add tests for id length max and min, if specified by company
