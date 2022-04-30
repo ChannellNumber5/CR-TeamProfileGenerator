@@ -14,21 +14,22 @@ inquirer
         name: "managerName",
         message: "Hello Team Manager! Please Enter your Name:"
         },
-        {type:"input",
-        name: "managerID",
-        message: "Please Enter your Employee ID Number"
+        {type:"number",
+        name: "managerId",
+        message: "Please Enter your Employee ID Number:"
         },
         {type:"input",
         name: "managerEmail",
         message: "Please Enter your Email Address:"
         },
-        {type:"input",
+        {type:"number",
         name: "managerOfficeNumber",
         message: "Please Enter your Office Number:"
         },
     ])
     .then((data) => {
         if (data.managerName === undefined || data.managerId === undefined || data.managerEmail === undefined|| data.managerOfficeNumber === undefined){
+            console.log(data)
             console.log("Please rerun script and input correct data for name, ID, email and Office Number");
             init();
         } else {
@@ -45,7 +46,7 @@ function teamMenu() {
         {type:"list",
         name: "toDoNext",
         message: "Please select from the following options:",
-        choices:["Create New Intern Employee Profile", "Create New Engineer Employee Profile", "Finish Creating my Team"]
+        choices:["Create New Intern Employee Profile", "Create New Engineer Employee Profile", "Delete Employee Profile", "Finish Creating my Team"]
         }
     ])
     .then((data) => {
@@ -53,6 +54,8 @@ function teamMenu() {
             createIntern();
         } else if (data.toDoNext === "Create New Engineer Employee Profile"){
             createEngineer();
+        } else if (data.toDoNext === "Delete Employee Profile") {
+            deleteEmployee();
         } else {
             teamFinished();
             consolelog("Team has been created!")
@@ -68,8 +71,8 @@ function createIntern() {
             name: "internName",
             message: "New Intern Employee Card Creation Mode: \n Please Enter the Intern's Name:"
             },
-            {type:"input",
-            name: "internID",
+            {type:"number",
+            name: "internId",
             message: "Please Enter the Intern's Employee ID Number"
             },
             {type:"input",
@@ -82,7 +85,7 @@ function createIntern() {
             },
         ])
         .then((data) => {
-            const intern = Intern(data.internName, data.internID, data.internEmail, data.school)
+            const intern = new Intern(data.internName, data.internId, data.internEmail, data.school)
             teamList.push(intern);
             teamMenu;
         })
@@ -95,8 +98,8 @@ function createEngineer() {
             name: "engName",
             message: "New Engineer Employee Card Creation Mode: \n Please Enter the Engineer's Name:"
             },
-            {type:"input",
-            name: "engID",
+            {type:"number",
+            name: "engId",
             message: "Please Enter the Engineer's Employee ID Number"
             },
             {type:"input",
@@ -109,12 +112,69 @@ function createEngineer() {
             },
         ])
         .then((data) => {
-            const engineer = new Engineer(data.engName, data.engID, data.engEmail, data.github)
+            const engineer = new Engineer(data.engName, data.engId, data.engEmail, data.github)
             teamList.push(engineer);
             teamMenu();
         });
 }
 
-function teamFinished(){
-    HtmlGenerator(teamList);
+function deleteEmployee() {
+    inquirer
+    .prompt([
+        {type: "list",
+        name: "toDelete",
+        message: "Which Team Member would you like to Delete?",
+        choices: teamList}
+    ])
+    .then((data) => {
+        for(let i = 0; i < teamList.length; i++) {
+            if(i !== 0 && data[i] === data.toDelete) {
+                teamList.splice(i, 1);
+            } else{
+                changeManager();
+            }
+        }
+    })
 }
+
+function changeManager() {
+    inquirer
+    .prompt([
+        {type:"input",
+        name: "managerName",
+        message: "Reacreating Team Manager Profile! \n Please Enter your Name:"
+        },
+        {type:"number",
+        name: "managerId",
+        message: "Please Enter your Employee ID Number:"
+        },
+        {type:"input",
+        name: "managerEmail",
+        message: "Please Enter your Email Address:"
+        },
+        {type:"number",
+        name: "managerOfficeNumber",
+        message: "Please Enter your Office Number:"
+        },
+    ])
+    .then((data) => {
+        if (data.managerName === undefined || data.managerId === undefined || data.managerEmail === undefined|| data.managerOfficeNumber === undefined){
+            console.log(data)
+            console.log("Please input correct data for name, ID, email and Office Number");
+            changeManager();
+        } else {
+            teamList[1].managerName = data.managerName;
+            teamList[1].managerId = data.managerId;
+            teamList[1].managerEmail = data.managerEmail;
+            teamList[1].managerOfficeNumber = data.managerOfficeNumber;
+
+            teamMenu();
+        }
+    })
+}
+
+function teamFinished(){
+    fs.writeFile("index.html",HtmlGenerator(teamList));
+}
+
+init();
