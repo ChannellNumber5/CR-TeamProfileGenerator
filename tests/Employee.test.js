@@ -69,13 +69,13 @@ describe("Employee", () => {
             mock.mockRestore();
         });
         
-        it("the getRole() method should return employee when called", () => {
+        it("the getRole() method should return 'employee' when called", () => {
             const employee = new Employee("Tim", 55228, "timMember@me.com");
             const mock = jest.spyOn(console, "log");
             mock.mockImplementation();
             employee.getRole();
             
-            expect(mock).toBeCalledWith("Emloyee");
+            expect(mock).toBeCalledWith("Employee");
             mock.mockRestore();
         });
     });

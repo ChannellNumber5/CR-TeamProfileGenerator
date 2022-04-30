@@ -1,0 +1,27 @@
+{
+  "name": "cr-teamprofilegenerator",
+  "version": "1.0.0",
+  "description": "Management Application for Team Managers to organize their employees' basic information",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChannellNumber5/CR-TeamProfileGenerator.git"
+  },
+  "author": "C.l.Robinson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChannellNumber5/CR-TeamProfileGenerator/issues"
+  },
+  "homepage": "https://github.com/ChannellNumber5/CR-TeamProfileGenerator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4",
+    "jest": "^28.0.3"
+  }
+}
