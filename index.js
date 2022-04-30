@@ -58,7 +58,7 @@ function teamMenu() {
             deleteEmployee();
         } else {
             teamFinished();
-            consolelog("Team has been created!")
+            console.log("Team has been created!")
         }
     })
 
@@ -87,7 +87,7 @@ function createIntern() {
         .then((data) => {
             const intern = new Intern(data.internName, data.internId, data.internEmail, data.school)
             teamList.push(intern);
-            teamMenu;
+            teamMenu();
         })
 }
 
@@ -126,12 +126,12 @@ function deleteEmployee() {
         message: "Which Team Member would you like to Delete?",
         choices: teamList}
     ])
-    .then((data) => {
+    .then(async (data) => {
         for(let i = 0; i < teamList.length; i++) {
             if(i !== 0 && data[i] === data.toDelete) {
                 teamList.splice(i, 1);
             } else{
-                changeManager();
+               await changeManager();
             }
         }
     })
@@ -174,7 +174,10 @@ function changeManager() {
 }
 
 function teamFinished(){
-    fs.writeFile("index.html",HtmlGenerator(teamList));
+    console.log(teamList);
+    console.log(HtmlGenerator(teamList));
+    fs.writeFile("index.html", HtmlGenerator(teamList), (err) => 
+    err ? console.error(err) : console.log("File Created Successfully"));
 }
 
 init();
