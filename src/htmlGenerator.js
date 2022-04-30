@@ -1,43 +1,46 @@
 function employeeCardGenerator(data) {
-    if(data.getRole() === "Manager") {
-        return `<div class="card">
-        <div class="card-header">
-            <h3>${data.name}</h3>
-            <h4>${data.getRole}</h4>
-        </div>
-        <ul class="empInfo">
-            <li>ID: ${data.id}</li>
-            <li><a href="mailto:${data.email}" target="_blank">${data.email}</a></li>
-            <li>${data.officeNumber}</li>
-        </ul>
-        </div>`;
-    }
-    if(data.getRole() === "Engineer") {
-        return `<div class="card">
-        <div class="card-header">
-            <h3>${data.name}</h3>
-            <h4>${data.getRole}</h4>
-        </div>
-        <ul class="empInfo">
-            <li>ID: ${data.id}</li>
-            <li><a href="mailto:${data.email}" target="_blank">${data.email}</a></li>
-            <li><a href="https://github.com/${data.github}">${data.github}</a></li>
-        </ul>
-        </div>`;
-    }
-    if(data.getRole() === "Intern") {
-        return `<div class="card">
-        <div class="card-header">
-            <h3>${data.name}</h3>
-            <h4>${data.getRole}</h4>
-        </div>
-        <ul class="empInfo">
-            <li>ID: ${data.id}</li>
-            <li><a href="mailto:${data.email}" target="_blank">${data.email}</a></li>
-            <li>${data.school}</li>
-        </ul>
-        </div>`;
-    }
+    for(let i = 0; i < data.length; i++) {
+
+        if(data[i].getRole() === "Manager") {
+            return `<div class="card">
+            <div class="card-header">
+                <h3>${data[i].name}</h3>
+                <h4>${data[i].getRole}</h4>
+            </div>
+            <ul class="empInfo">
+                <li>ID: ${data[i].id}</li>
+                <li><a href="mailto:${data[i].email}" target="_blank">${data[i].email}</a></li>
+                <li>${data[i].officeNumber}</li>
+            </ul>
+            </div>`;
+        }
+        if(data[i].getRole() === "Engineer") {
+            return `<div class="card">
+            <div class="card-header">
+                <h3>${data[i].name}</h3>
+                <h4>${data[i].getRole}</h4>
+            </div>
+            <ul class="empInfo">
+                <li>ID: ${data[i].id}</li>
+                <li><a href="mailto:${data[i].email}" target="_blank">${data[i].email}</a></li>
+                <li><a href="https://github.com/${data[i].github}">${data[i].github}</a></li>
+            </ul>
+            </div>`;
+        }
+        if(data[i].getRole() === "Intern") {
+            return `<div class="card">
+            <div class="card-header">
+                <h3>${data[i].name}</h3>
+                <h4>${data[i].getRole}</h4>
+            </div>
+            <ul class="empInfo">
+                <li>ID: ${data[i].id}</li>
+                <li><a href="mailto:${data[i].email}" target="_blank">${data[i].email}</a></li>
+                <li>${data[i].school}</li>
+            </ul>
+            </div>`;
+        }
+}
 }
 
 function htmlGenerator(data) {
@@ -89,15 +92,19 @@ function htmlGenerator(data) {
                 text-align: center;
             }
             </style>
-            <title></title>
+            <title>Team Roster</title>
         </head>
         <body>
             <header>
-                <h1></h1>
+                <h1>My Team</h1>
             </header>
             <main>
-    
+                <div id="card-holder">
+                ${employeeCardGenerator(data)}
+                </div>
             </main>
         </body>
     </html>`
 }
+
+module.exports = htmlGenerator;
