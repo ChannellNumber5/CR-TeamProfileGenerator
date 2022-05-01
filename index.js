@@ -73,7 +73,7 @@ function createIntern() {
             },
             {type:"number",
             name: "internId",
-            message: "Please Enter the Intern's Employee ID Number"
+            message: "Please Enter the Intern's Employee ID Number:"
             },
             {type:"input",
             name: "internEmail",
@@ -100,7 +100,7 @@ function createEngineer() {
             },
             {type:"number",
             name: "engId",
-            message: "Please Enter the Engineer's Employee ID Number"
+            message: "Please Enter the Engineer's Employee ID Number:"
             },
             {type:"input",
             name: "engEmail",
@@ -128,9 +128,11 @@ function deleteEmployee() {
     ])
     .then(async (data) => {
         for(let i = 0; i < teamList.length; i++) {
-            if(i !== 0 && data[i] === data.toDelete) {
+            if (i !== 0 && data[i] === data.toDelete) {
                 teamList.splice(i, 1);
-            } else{
+                teamMenu();
+                return;
+            } else if (i === 0 && data[i] === data.toDelete) {
                await changeManager();
             }
         }
@@ -163,10 +165,10 @@ function changeManager() {
             console.log("Please input correct data for name, ID, email and Office Number");
             changeManager();
         } else {
-            teamList[1].managerName = data.managerName;
-            teamList[1].managerId = data.managerId;
-            teamList[1].managerEmail = data.managerEmail;
-            teamList[1].managerOfficeNumber = data.managerOfficeNumber;
+            teamList[1].name = data.managerName;
+            teamList[1].id = data.managerId;
+            teamList[1].email = data.managerEmail;
+            teamList[1].officeNumber = data.managerOfficeNumber;
 
             teamMenu();
         }
@@ -174,7 +176,7 @@ function changeManager() {
 }
 
 function teamFinished(){
-    fs.writeFile("index.html", HtmlGenerator(teamList), (err) => 
+    fs.writeFile("./dist/index.html", HtmlGenerator(teamList), (err) => 
     err ? console.error(err) : console.log("File Created Successfully"));
 }
 
