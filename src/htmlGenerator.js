@@ -93,9 +93,9 @@ function htmlGenerator(data) {
                 </div>
             </header>
             <main class="container">
-                <div id="card-holder" <div id="card-holder" class="columns is-3 is-ycentered is-multiline">
+                <div id="card-holder" class="columns is-3 is-ycentered is-multiline">
                 ${employeeCardGenerator(data)}
-                </div>
+                </id=>
             </main>
         </body>
     </html>`
