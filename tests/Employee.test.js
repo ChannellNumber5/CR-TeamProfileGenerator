@@ -41,42 +41,30 @@ describe("Employee", () => {
     describe("Tests methods on Employee and that function as intended", () => {
         it("the getName() method should return name assigned to employee instance", () => {
             const employee = new Employee("Tim", 55228, "timMember@me.com");
-            const mock = jest.spyOn(console, "log");
-            mock.mockImplementation();
-            employee.getName();
+            const mock = employee.getName();
             
-            expect(mock).toBeCalledWith(employee.name);
-            mock.mockRestore();
+            expect(mock).toEqual(employee.name);
         });
 
         it("the getId() method should return the id assigned to employee instance", () => {
             const employee = new Employee("Tim", 55228, "timMember@me.com");
-            const mock = jest.spyOn(console, "log");
-            mock.mockImplementation();
-            employee.getId();
+            const mock = employee.getId();
             
-            expect(mock).toBeCalledWith(employee.id);
-            mock.mockRestore();
+            expect(mock).toEqual(employee.id);
         });
 
         it("the getEmail() method should return name assigned to employee instance", () => {
             const employee = new Employee("Tim", 55228, "timMember@me.com");
-            const mock = jest.spyOn(console, "log");
-            mock.mockImplementation();
-            employee.getEmail();
+            const mock = employee.getEmail();
             
-            expect(mock).toBeCalledWith(employee.email);
-            mock.mockRestore();
+            expect(mock).toEqual(employee.email);
         });
         
         it("the getRole() method should return 'employee' when called", () => {
             const employee = new Employee("Tim", 55228, "timMember@me.com");
-            const mock = jest.spyOn(console, "log");
-            mock.mockImplementation();
-            employee.getRole();
+            const mock = employee.getRole();
             
-            expect(mock).toBeCalledWith("Employee");
-            mock.mockRestore();
+            expect(mock).toEqual("Employee");
         });
     });
 });
