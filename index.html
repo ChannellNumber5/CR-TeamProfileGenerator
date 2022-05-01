@@ -3,89 +3,113 @@
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
-            <title>${data[1].getName()}'s Team Roster</title>
+            <title>Christina Robinson's Team Roster</title>
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-            <!-- <style>
-            header {
-                background-color: teal;
-                color:whitesmoke;
-                max-width: 100%;
-                margin: auto;
-                padding: 0;
-                max-height: 20vw;
-            }
+            <style>
+                header {
+                    height: 10vw;
+                }
+                h1 {
+                    font-weight: bold;
+                    text-align: center;
+                    padding: 3.5vw 0;
+                }
+                #card-holder {
+                    /* display: inline-flex; */
+                    flex-wrap: wrap;
+                }
+                .card-header {
+                    background-color: grey;
 
-            #card-holder {
-                flex: wrap;
-                justify-content: center;
-                display:inline;
-            }
-            .card {
-                max-width: 20vw;
-                border: solid 2px black;
-                box-shadow: grey 5px;
-                margin: 10vw;
-            }
+                }
+                .card-content {
+                    box-sizing: border-box;
+                }
+                .card-content p {
+                    background-color: lightgray;
+                    margin: 1px 0;
+                    box-sizing: border-box;
+                    line-height: 1.5;
+                    word-wrap: normal;
+                    text-overflow: none;
+                }
+                /* @media only screen and (max-width: 769) {
+                    .card {
+                    border: solid 1px black;
+                    background-color: whitesmoke;
+                    max-width: 20%;
+                } 
+                @media only screen and (min-width: 768) {
+                    .card {
+                    border: solid 1px black;
+                    background-color: whitesmoke;
+                    max-width: 50%;
+                } 
+                @media only screen and (max-width: 390) {
+                    .card {
+                    border: solid 1px black;
+                    background-color: whitesmoke;
+                    max-width: 80%;
+                }  */
 
-            .card-header {
-                background-color: darkslategray;
-                color:whitesmoke;
-                margin: 0;
-                padding: 0;
-            }
-
-            a:link {
-                color:cadetblue;
-            }
-
-            a:hover {
-                color:black;
-            }
-
-            .empInfo li {
-                border: solid black 2px;
-                margin: auto;
-                list-decoration: none;
-                text-align: center;
-            } -->
-            <!-- </style> -->
+                </style>
         </head>
         <body>
-            <header>
-                <h1> Christina's Team Members</h1>
-            </header>
-            <main>
-                <div id="card-holder">
-                <div class="card">
-                <div class="card-header">
-                    <div class="card-header-title is-centered">a;dkf <br> Manager </div>
+            <header class="panel is-primary columns is-xcentered">
+                <div class="panel-heading column">
+                    <h1 class="is-xcentered"> Christina Robinson's Team</h1>
                 </div>
-                <div class="card-content">
-                <p>ID: 1</p>
-                <p><a href="mailto:sdlfja" target="no_blank">sdlfja</a></p>
-                <p>5</p>
-            </div>
-            </div><div class="card">
-            <div class="card-header">
-                <h3>sldkf</h3>
-                <h4>Intern</h4>
-            </div>
-            <ul class="empInfo">
-                <li>ID: 2</li>
-                <li><a href="mailto:sdlkfj" target="_blank">sdlkfj</a></li>
-                <li>lsdfj</li>
-            </ul>
-            </div><div class="card">
-            <div class="card-header">
-                <h3>adkjfh</h3>
-                <h4>Engineer</h4>
-            </div>
-            <ul class="empInfo">
-                <li>ID: 3</li>
-                <li><a href="mailto:lkadj" target="_blank">lkadj</a></li>
-                <li><a href="https://github.com/adlkj">adlkj</a></li>
-            </ul>
-            </div>
+            </header>
+            <main class="container">
+                <div id="card-holder" class="columns is-3 is-ycentered is-multiline">
+                    <div class="column is-one-quarter">
+                        <div class="card-header">
+                            <div class="card-header-title is-centered"> 
+                                <p> David Robinson <br> Manager</p>
+                            </div>
+                        </div>
+                        <div class="card-content box">
+                            <p>ID: 1</p>
+                            <p>Email: <a href="mailto:davidRob@company.com" target="no_blank">davidRob@company.com</a></p>
+                            <p>Office Number: 1</p>
+                        </div>
+                    </div>
+                    <div class="column is-one-quarter">
+                        <div class="card-header">
+                            <div class="card-header-title is-centered"> 
+                                <p> Christina Robinson <br> Engineer</p>
+                            </div>
+                        </div>
+                        <div class="card-content box">
+                            <p> ID: 2</p>
+                            <p>Email: <a href="mailto:CRob@company.com" target="no_blank">CRob@company.com</a></p>
+                            <p>Github: <a href="https://github.com/CRobLuvsCode" target="no_blank">CRobLuvsCode</a></p>
+                        </div>
+                    </div>
+                    <div class="column is-one-quarter">
+                        <div class="card-header">
+                            <div class="card-header-title is-centered"> 
+                                <p> Noah Robinson <br> Intern</p>
+                            </div>
+                        </div>
+                        <div class="card-content box">
+                            <p> ID: 3</p>
+                            <p>Email: <a href="mailto:NRob@company.com" target="no_blank">NRob@company.com</a></p>
+                            <p>School: UW</p>
+                        </div>
+                     </div>
+                     <div class="column is-one-quarter">
+                        <div class="card-header">
+                            <div class="card-header-title is-centered"> 
+                                <p> Robinson Pet <br> Intern</p>
+                            </div>
+                        </div>
+                        <div class="card-content box">
+                            <p> ID: 4</p>
+                            <p>Email: <a href="mailto:CutePups@company.com" target="no_blank">CutePups@company.com</a></p>
+                            <p>School: HomeSchool</p>
+                        </div>
+                    </div>
                 </div>
             </main>
         </body>
