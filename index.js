@@ -174,8 +174,6 @@ function changeManager() {
 }
 
 function teamFinished(){
-    console.log(teamList);
-    console.log(HtmlGenerator(teamList));
     fs.writeFile("index.html", HtmlGenerator(teamList), (err) => 
     err ? console.error(err) : console.log("File Created Successfully"));
 }
