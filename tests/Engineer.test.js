@@ -19,22 +19,16 @@ describe("Engineer", () => {
 
         it("the getGithub() method should return the github username assigned to the engineer instance", () => {
             const engineer = new Engineer("Tim", 55228, "timMember@me.com","timsGit4Code");
-            const mock = jest.spyOn(console, "log");
-            mock.mockImplementation();
-            engineer.getGithub();
+            const mock = engineer.getGithub();
             
-            expect(mock).toBeCalledWith(engineer.github);
-            mock.mockRestore();
+            expect(mock).toEqual(engineer.github);
         });
         
         it("the getRole() method should return 'Engineer' when called", () => {
             const engineer = new Engineer("Tim", 55228, "timMember@me.com", "timsGit4Code");
-            const mock = jest.spyOn(console, "log");
-            mock.mockImplementation();
-            engineer.getRole();
+            const mock = engineer.getRole();
             
-            expect(mock).toBeCalledWith("Engineer");
-            mock.mockRestore();
+            expect(mock).toEqual("Engineer");
         });
     });
 });

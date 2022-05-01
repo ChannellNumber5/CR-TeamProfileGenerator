@@ -19,12 +19,9 @@ describe("Manager", () => {
         
         it("the getRole() method should return 'Manager' when called", () => {
             const manager = new Manager("Tim", 55228, "timMember@me.com", 45);
-            const mock = jest.spyOn(console, "log");
-            mock.mockImplementation();
-            manager.getRole();
+            const mock = manager.getRole();
             
-            expect(mock).toBeCalledWith("Manager");
-            mock.mockRestore();
+            expect(mock).toEqual("Manager");
         });
     });
 });

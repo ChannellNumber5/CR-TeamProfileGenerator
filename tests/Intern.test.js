@@ -19,22 +19,16 @@ describe("Intern", () => {
 
         it("the getSchool() method should return the school assigned to the intern instance", () => {
             const intern = new Intern("Tim", 55228, "timMember@me.com","Carnegie Mellon University");
-            const mock = jest.spyOn(console, "log");
-            mock.mockImplementation();
-            intern.getSchool();
+            const mock = intern.getSchool();
             
-            expect(mock).toBeCalledWith(intern.school);
-            mock.mockRestore();
+            expect(mock).toEqual(intern.school);
         });
         
         it("the getRole() method should return 'Intern' when called", () => {
             const intern = new Intern("Tim", 55228, "timMember@me.com","Carnegie Mellon University");
-            const mock = jest.spyOn(console, "log");
-            mock.mockImplementation();
-            intern.getRole();
+            const mock = intern.getRole();
             
-            expect(mock).toBeCalledWith("Intern");
-            mock.mockRestore();
+            expect(mock).toEqual("Intern");
         });
     });
 });
