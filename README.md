@@ -19,6 +19,20 @@ This application used [Jest](https://jestjs.io/) from npm to run the tests and t
 ## Tests
 As stated above, this application uses Jest as the test suite for it's code. To run the tests, the user will need to enter "npm run test" into the command line and then hit enter. If install and cloning of the application was successful, it should pass all tests created during development.
 
+## License
+
+This project is licensed under the MIT license.
+
+[MIT License](https://opensource.org/licenses/MIT)
+
+## Contact Info
+
+Christina Robinson
+
+Email: [CLRCoding@gmail.com](mailto:CLRCoding@gmail.com)
+
+Github: [ChannellNumber5](https://github.com/ChannellNumber5)
+
 ### Resources
 - [Open Page in New Tab](https://www.freecodecamp.org/news/how-to-use-html-to-open-link-in-new-tab/)
 - [MailTo: for email links](https://www.w3schools.com/tags/tag_address.asp)
